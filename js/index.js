@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const listPanel = document.getElementById("list");
     const showPanel = document.getElementById("show-panel");
-    const currentUser = { id: 1, username: "pouros" }; // Simulated logged-in user
+    const currentUser = { id: 1, username: "pouros" };
 
-    // Fetch and display books
+    
     function fetchBooks() {
         fetch("http://localhost:3000/books")
             .then(response => response.json())
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function displayBookList(books) {
-        listPanel.innerHTML = ""; // Clear existing list
+        listPanel.innerHTML = "";
         books.forEach(book => {
             const li = document.createElement("li");
             li.textContent = book.title;
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             body: JSON.stringify({ users: updatedUsers }),
         })
         .then(response => response.json())
-        .then(updatedBook => displayBookDetails(updatedBook)); // Update UI with new data
+        .then(updatedBook => displayBookDetails(updatedBook));
     }
 
     fetchBooks(); // Load books on page load
